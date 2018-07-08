@@ -27,14 +27,14 @@ class NaiveBayes:
         self.p_x = { xi: x.count(xi)/len(x) for xi in list(x) } 
 
         # probability of an output occuring
-        self.p_y = { yi: y.count(yi)/len(play) for yi in sorted(play) }
+        self.p_y = { yi: y.count(yi)/len(y) for yi in sorted(play) }
 
         # probability of outputs for each input
         self.p_xy = { xi: { yi: len([ i for n, i in enumerate(y) if yi == i and xi == x[n] ]) / x.count(xi) for yi in list(y)} for xi in list(x) } 
 
     def predict(self, xi):
         y_hat = { y: self.p_xy[xi][y] * self.p_y[y] / self.p_x[xi] for y in list(self.y) } 
-        return y_haG
+        return y_hat
 
 
 if __name__ == '__main__':
