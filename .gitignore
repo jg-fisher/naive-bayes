@@ -2,4 +2,5 @@
 *.swn
 *.swo
 /spam.csv
+/env
 
