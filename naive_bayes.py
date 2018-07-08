@@ -1,7 +1,6 @@
 import numpy as np
 
 """
-
 Bayes Theorem
 P(c|x) = P(x|c) * P(c) / P(x)
 """
@@ -35,16 +34,14 @@ class NaiveBayes:
 
     def predict(self, xi):
         y_hat = { y: self.p_xy[xi][y] * self.p_y[y] / self.p_x[xi] for y in list(self.y) } 
-        return y_hat
+        return y_haG
 
 
-nb = NaiveBayes(weather, play)
-print('Probability of input occurence: {}:'.format(nb.p_x))
-print('Probability of output occurence: {}'.format(nb.p_y))
-print('Probability of an output given an input: {}'.format(nb.p_xy))
-
-x = ['Sunny', 'Rainy', 'Overcast']
-for xi in x:
-    print('{0}: {1}'.format(xi, nb.predict(xi)))
+if __name__ == '__main__':
+    nb = NaiveBayes(weather, play)
+    
+    x = ['Sunny', 'Rainy', 'Overcast']
+    for xi in x:
+        print('Classification of {0}: {1}'.format(xi, nb.predict(xi)))
 
 
